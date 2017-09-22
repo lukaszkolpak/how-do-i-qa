@@ -3,7 +3,10 @@ require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 
-Capybara.javascript_driver = :webkit
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+Capybara.javascript_driver = :selenium
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

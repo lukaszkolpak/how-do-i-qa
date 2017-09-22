@@ -37,6 +37,7 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'simplecov'
+  gem 'chromedriver-helper'
 end
 
 group :development do
